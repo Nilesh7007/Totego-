@@ -5,8 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./cart.css">
 </head>
 <body>
-    <h1>suraj</h1>
+    <h1>Your Cart</h1>
+    <div class="container-fluid">
+      <div class="row align-items-start">
+        <div class="col-12 col-sm-8 items" id="items">
+          <!--1-->
+          
+          <!--2-->
+     
+        </div>
+        <div class="col-12 col-sm-4 p-3 proceed form">
+          <div class="row m-0">
+            <div class="col-sm-8 p-0">
+              <h6>Subtotal</h6>
+            </div>
+            <div class="col-sm-4 p-0">
+              <p id="subtotal">$132.00</p>
+            </div>
+          </div>
+          <div class="row m-0">
+            <div class="col-sm-8 p-0 ">
+              <h6>Tax</h6>
+            </div>
+            <div class="col-sm-4 p-0">
+              <p id="tax">$6.40</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row mx-0 mb-2">
+            <div class="col-sm-8 p-0 d-inline">
+              <h5>Total</h5>
+            </div>
+            <div class="col-sm-4 p-0">
+              <p id="total">$138.40</p>
+            </div>
+          </div>
+          <a href="/checkout/payment.html"><button id="btn-checkout" class="shopnow"><span>Checkout</span></button></a>
+        </div>
+      </div>
+    </div>
+    </div>
 </body>
 </html>
+<script src="./cart.js"></script>

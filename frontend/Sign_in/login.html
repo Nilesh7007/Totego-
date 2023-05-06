@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        /* CSS for the main container */
+#cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* CSS for the page title */
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* CSS for the input fields */
+input[type="text"],
+input[type="password"] {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+/* CSS for the login button */
+button {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #5cb85c;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* CSS for the login button on hover */
+button:hover {
+  background-color: #449d44;
+}
+
+/* CSS for the error message */
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <h1>Login Page</h1>
+        
+        <input type="text" id="email" placeholder="Enter your email.....">
+        <input type="password" id="pass" placeholder="Enter your password.....">
+        
+        <button onclick="onLogin()">Login</button>
+    </div>
+</body>
+</html>
+<script>
+    const onLogin=()=>{
+        const payload = {
+           
+            email:document.getElementById("email").value,
+            password:document.getElementById("pass").value
+           
+        }
+        // console.log(payload)
+        fetch("http://localhost:8080/users/login",{
+            method:"POST",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify(payload)
+    
+        }).then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+        localStorage.setItem("token",res.token)
+        alert("login successful! You will now be redirected to the create page.");
+      window.location.href = "../Cart_Page/cart.html";
+        })
+        .catch(err=>consle.log(err))
+    }
+    
+    
+    </script>

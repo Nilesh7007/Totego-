@@ -4,9 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SIGNUP</title>
+    <style>
+        /* CSS for Signup Page */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f2f2f2;
+}
+
+#cont {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+    </style>
 </head>
 <body>
-    <h1>Sign in page</h1>
+    <div id="cont">
+        <h1>Signup Page</h1>
+        <input type="text" id="name" placeholder="Enter your name.....">
+        <input type="text" id="email" placeholder="Enter your email.....">
+        <input type="password" id="pass" placeholder="Enter your password.....">
+        <input type="number" id="age" placeholder="Enter your age.....">
+        <button onclick="onSignup()">Sign Up</button>
+    </div>
 </body>
 </html>
+<script>
+const onSignup=()=>{
+    const payload = {
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        password:document.getElementById("pass").value,
+        age:document.getElementById("age").value
+    }
+    // console.log(payload)
+    fetch("http://localhost:8080/users/register",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(payload)
+
+    }).then(res=>res.json())
+    .then(res=>{
+        console.log(res)
+    alert("Signup successful! You will now be redirected to the login page.");
+      window.location.href = "login.html"})
+
+    .catch(err=>console.log(err))
+}
+
+
+</script>
