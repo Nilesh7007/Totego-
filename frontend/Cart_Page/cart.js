@@ -107,7 +107,7 @@
 // else{
 
   const getData=()=>{
-    fetch("http://localhost:8080/cart/get",{
+    fetch("https://kind-pear-goshawk-shoe.cyclic.app/cart/get",{
     
         headers:{
       
@@ -133,7 +133,7 @@
         upBtn.textContent = "Buy"
         
         delBtn.addEventListener("click", () => {
-          fetch(`http://localhost:8080/cart/rem/${product._id}`, {
+          fetch(`https://kind-pear-goshawk-shoe.cyclic.app/cart/rem/${product._id}`, {
             method: "DELETE",
             headers: {
               "Authorization": localStorage.getItem("token")
