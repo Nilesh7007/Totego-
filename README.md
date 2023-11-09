@@ -1,4 +1,4 @@
-# wasteful-dock-5798
+# Totego
 
 Totego - Fashion eCommerce Website
 
